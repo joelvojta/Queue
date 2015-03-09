@@ -1,56 +1,62 @@
 import java.util.Random;
 
+
 public class Person 
 {
 	private String name;
 	private int walletBalance;
 	private static Random r = new Random();
-	private Person nextPerson;//added here
-	//private int count;
+	private Person nextPerson;
+	private Person prevPerson;
 	
 	public Person(String name)
 	{
 		this.name = name;
 		this.walletBalance = Person.r.nextInt(10);
-		this.nextPerson = null;//added here
-	}
-	
-	public void display()
-	{
-		System.out.println("Hi, my name is: " + this.name + " and I have: $" + this.walletBalance + " on me!");
-		this.walletBalance = Person.r.nextInt(10);//changes wallet every time 
-		
+		this.nextPerson = null;
+		this.prevPerson = null;
 	}
 	
 	
-	// setters and getters
-	/**
-	public Disc(int size)
+	
+	public String getName() 
 	{
-		this.size = size;
-		this.nextDisc = null;
+		return name;
 	}
-	 
-	public String toString()
+
+	public int getWalletBalance() 
 	{
-		return "" + this.size;
+		return walletBalance;
 	}
-	*/
-	public Person getNextPerson() {
+
+	public void setWalletBalance(int walletBalance) 
+	{
+		this.walletBalance = walletBalance;
+	}
+
+	public Person getNextPerson() 
+	{
 		return nextPerson;
 	}
 
-	public void setNextPerson(Person nextPerson) {
+	public void setNextPerson(Person nextPerson) 
+	{
 		this.nextPerson = nextPerson;
 	}
 	
-	public String getPerson() 
+	public Person getPrevPerson() 
 	{
-		return name ;
+		return prevPerson;
 	}
-/**
-	public int getSize() {
-		return size;
+
+	public void setPrevPerson(Person prevPerson) 
+	{
+		this.prevPerson = prevPerson;
 	}
-	*/
+
+	public void display()
+	{
+		System.out.println("Hi, my name is: " + this.name + " and I have: $" + this.walletBalance);
+	}
+	
 }
